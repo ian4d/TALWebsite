@@ -1,0 +1,59 @@
+---
+---
+@import 'layout';
+
+
+#backLink {
+    position: fixed;
+    padding: 1em;
+    bottom: 0px;
+    right: 0px;
+}
+
+div {
+    &.act {
+        ul {
+            &.actStatements {
+                margin-left: 0.2em;
+                li {
+                    list-style-type: none;
+                    margin-top: $baseMargin;
+                    span {
+                        &.speakerName {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        &:not(:last-child) {
+            border-bottom-style: $borderBottomStyle;
+            border-bottom-color: $usaRed;
+            border-bottom-width: 0.2em;
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+        }
+    }
+}
+
+$columnCount: 3;
+$columnGap: 2em;
+
+ul {
+    &.episodeList {
+
+        -moz-column-count: $columnCount;
+        -webkit-column-count: $columnCount;
+        column-count: $columnCount;
+        column-gap: $columnGap;
+        list-style: none;
+    }
+
+    &.contributorList {
+
+        -moz-column-count: $columnCount;
+        -webkit-column-count: $columnCount;
+        column-count: $columnCount;
+        column-gap: $columnGap;
+    }
+}

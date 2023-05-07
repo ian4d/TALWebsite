@@ -1,0 +1,40 @@
+---
+---
+@import 'flex_layout';
+
+#backLink {
+    position: fixed;
+    padding: 1em;
+    bottom: 0px;
+    right: 0px;
+}
+
+div {
+    &.section {
+        ul {
+            &.contributorVocab {
+                margin-left: 0.2em;
+                li {
+                    display: inline;
+                    list-style-type: none;
+
+                    &.vocabEntry {
+                        font-size: 0.8em;
+                        margin: 0.2em;
+                        padding: 0.2em;
+                        border-radius: 0.5em;
+                        background-color: #cd202011;
+                    }
+                }
+            }
+        }
+
+        &:not(:last-child) {
+            border-bottom-style: $borderBottomStyle;
+            border-bottom-color: $usaRed;
+            border-bottom-width: 0.2em;
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+        }
+    }
+}

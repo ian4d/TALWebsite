@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="/assets/css/contributor.css"/>
+<!-- Page layout -->
+
+{%- assign contributor = page.contributor -%}
+{%- assign statements = contributor["statements"] -%}
+{%- assign spokenWords = contributor["spokenWords"] | sort | compact -%}
+{%- assign episodes = contributor["episodes"] -%}
+
+<a id="topOfPage"></a>
+<header>
+    <section class="wrapper">
+        <h1 class="post-title"><a href="/" class="home-link">That American Life</a> &#187; {{ page.contributor.name | escape }}</h1>
+    </section>
+</header>
+
+<section class="flag-bg"></section>
+
+<section id="content" class="wrapper">
+    <nav>
+        <h2>About</h2>
+        <ul>
+            <li><a href="#episodes">Episodes</a></li>
+            <li><a href="#vocabulary">Vocabulary</a></li>
+        </ul>
+    </nav>
+
+    <article>
+<!--        <div class="mainContent">-->
+
+            <div class="section">
+
+            <h2>Episodes</h2>
+            <a id="episodes"></a>
+            {{ contributor["name"] }} has contributed to <b>{{ episodes | size }}</b> episodes of This American Life:
+            <ul>
+                {%- assign sortedEpNumbers = episodes | keys | sort -%}
+                {% for episodeNumber in sortedEpNumbers %}
+                <li>
+                    {%- assign episodeHash = episodes[episodeNumber] -%}
+                    <a href="/episodes/episode{{ episodeNumber }}">
+                        {{ episodeNumber] }} - {{ episodeHash }}
+                    </a>
+                </li>
+                {% endfor %}
+
+            </ul>
+            </div>
+
+            <div class="section">
+
+            <h2>Vocabulary</h2>
+            <a id="vocabulary"></a>
+            {{ contributor["name"] }} has made <b>{{ statements | size }}</b> statements, comprised of <b>{{ spokenWords
+            | size }}</b> unique
+            spoken words:
+            <ul class="contributorVocab">
+                {% for spokenWord in spokenWords %}
+                <li class="vocabEntry">
+                    {{ spokenWord }}
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
+<!--        </div>-->
+        <!-- Content should end here -->
+    </article>
+</section>

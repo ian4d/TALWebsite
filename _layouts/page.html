@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<!-- Page layout -->
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    <!-- Content should be injected here -->
+    {{ content }}
+    {{ page.source }}
+    <!-- Content should end here -->
+  </div>
+
+</article>

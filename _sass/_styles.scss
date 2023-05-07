@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+$usaRed: #B31942;
+$usaBlue: #0A3161;
+$usaWhite: #ffffff;
+$borderBottomStyle: double;
+
+$basePadding: 1em;
+$baseMargin: 1em;
+
+.flag-bg {
+    background-image: linear-gradient(90deg, $usaRed 25%, $usaWhite 25%, $usaWhite 50%, $usaRed 50%, $usaRed 75%, $usaWhite 75%, $usaWhite 100%);
+    background-size: 80px 80px;
+    height: 1em;
+}

@@ -1,0 +1,42 @@
+@import 'styles';
+
+body {
+    background-color: $usaWhite;
+}
+
+a {
+    &:link, &:visited {
+        text-decoration: none;
+    }
+    &:hover {
+        border-bottom-style: $borderBottomStyle;
+        border-bottom-color: $usaRed;
+        color: $usaBlue;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: EB Garamond;
+}
+
+header {
+    background-color: $usaBlue;
+    color: $usaWhite;
+    padding: $basePadding;
+    font-family: EB Garamond;
+    font-size: 2em;
+}
+
+#content {
+    padding: $basePadding;
+    background-color: $usaWhite;
+    max-width: -webkit-calc(800px - (30px * 2));
+    max-width: calc(800px - (30px * 2));
+    &.wrapper {
+        width: 80%;
+    }
+}
+
+.page-content {
+    padding-top: 0px;
+}

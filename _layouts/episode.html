@@ -1,0 +1,61 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="/assets/css/episode.css"/>
+<!-- Page layout -->
+
+<a id="topOfPage"></a>
+<header>
+    <section class="wrapper">
+        <h1 class="post-title"><a href="/" class="home-link">That American Life</a> &#187; {{ page.episode["episodeNumber"] }}. {{ page.title | escape }}</h1>
+    </section>
+</header>
+
+<section class="flag-bg"></section>
+
+<section id="content" class="wrapper">
+    <nav>
+        <h2>Acts</h2>
+        <ul>
+            {% for act in page.episode["actMap"] %}
+            {%- assign actData = act[1] -%}
+                <li>
+                    <a href="#act{{ act[0] }}">{{ actData["actName"] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Contributors</h2>
+        <ul>
+            {%- assign sortedContributors = page.episode["contributorMap"] | keys | sort -%}
+            {% for contributorName in sortedContributors %}
+                {%- assign contributor = page.episode["contributorMap"][contributorName] -%}
+                <li><a href="../contributors/{{ contributor["name"] | slugify }}">{{ contributor["name"] }}</a>
+            {% endfor %}
+        </ul>
+    </nav>
+
+
+    <article>
+        <!-- Content should be injected here -->
+        {% for act in page.episode["actMap"] %}
+        <div class="act">
+
+            {%- assign actData = act[1] -%}
+            <a id="act{{ act[0] }}" ></a>
+            <h2>{{ actData["actName"] }}</h2>
+
+            <ul class="actStatements">
+                {% for statement in actData["blogEpisodeStatementList" %}
+                <li>
+                    <span class="speakerName">{{ statement["speakerName"] }}:</span>
+                    <span class="speakerText">{{ statement["text"] }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </article>
+</section>
+
+<div id="backLink"><a href="#topOfPage">Back to top</a></div>
