@@ -56,4 +56,8 @@ ul {
         column-count: $columnCount;
         column-gap: $columnGap;
     }
+
+    &.updateList {
+       list-style: none;
+    }
 }

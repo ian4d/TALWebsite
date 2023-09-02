@@ -33,42 +33,52 @@ time. For now, and until then, you are welcome to the questionable fruits of my 
 </p>
 </article>
 
-{%- assign contributorCount = site.data.contributorList | size -%}
-{% if contributorCount > 0 %}
-<article>
-<h2>Contributors</h2>
-<p>
-<ul class="contributorList">
-    {%- assign contributorNames = "" | split: ',' -%}
-    {% for contributor in site.data.contributorList %}
-        {%- assign contributorNames = contributorNames | push: contributor["name"] -%}
-    {% endfor %}
-    
-    {%- assign sortedContributorNames = contributorNames | sort -%}
-    {% for contributorName in sortedContributorNames %}
-        <li><a href="contributors/{{ contributorName | slugify }}">{{ contributorName }}</a></li>
-    {% endfor %}
-</ul>
-</p>
-</article>
+{%- assign postCount = site.posts | size -%}
+{% if postCount > 0 %}
+    <article>
+        <h2>Recent Updates</h2>
+        {% for post in site.posts limit:3 %}
+            <b>{{ post.title }}</b>, {{ post.date | date_to_long_string }} {{ post.excerpt }}
+        {% endfor %}
+    </article>
 {% endif %}
 
 {%- assign episodeCount = site.data.episodeList | size -%}
 {% if episodeCount > 0 %}
-<article>
-<h2>Episodes</h2>
-<p>
-<ul class="episodeList">
-{% for ep in site.data.episodeList %}
-    <li>
-        {{ ep.number }}. <a href="episodes/episode{{ ep.number }}">
-            {{ ep.title }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
-</p>
-</article>
+    <article>
+        <h2>Episodes</h2>
+        <p>
+            <ul class="episodeList">
+                {% for ep in site.data.episodeList %}
+                    <li>
+                        {{ ep.number }}. <a href="episodes/episode{{ ep.number }}">
+                            {{ ep.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </p>
+    </article>
+{% endif %}
+
+{%- assign contributorCount = site.data.contributorList | size -%}
+{% if contributorCount > 0 %}
+    <article>
+        <h2>Contributors</h2>
+        <p>
+            <ul class="contributorList">
+                {%- assign contributorNames = "" | split: ',' -%}
+                {% for contributor in site.data.contributorList %}
+                    {%- assign contributorNames = contributorNames | push: contributor["name"] -%}
+                {% endfor %}
+                
+                {%- assign sortedContributorNames = contributorNames | sort -%}
+                {% for contributorName in sortedContributorNames %}
+                    <li><a href="contributors/{{ contributorName | slugify }}">{{ contributorName }}</a></li>
+                {% endfor %}
+            </ul>
+        </p>
+    </article>
 {% endif %}
 
 <article>
