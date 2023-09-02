@@ -30,7 +30,10 @@ layout: default
             {%- assign sortedContributors = page.episode["contributorMap"] | keys | sort -%}
             {% for contributorName in sortedContributors %}
                 {%- assign contributor = page.episode["contributorMap"][contributorName] -%}
-                <li><a href="../contributors/{{ contributor["name"] | slugify }}">{{ contributor["name"] }}</a>
+                {%- assign sizeOfName = contributor["name"] | size -%}
+                {% if sizeOfName > 0 %}
+                    <li><a href="../contributors/{{ contributor["name"] | slugify }}">{{ contributor["name"] }}</a>
+                {% endif %}
             {% endfor %}
         </ul>
     </nav>
