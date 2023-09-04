@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # Here source code branch is `master`, it could be other branch
+  schedule:
+    - cron: '0 * * * *'
 
 jobs:
   build_and_deploy:
@@ -35,7 +37,3 @@ jobs:
           cname: ''                  # Default is to not use a cname
           actor: ''                  # Default is the GITHUB_ACTOR
           pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
-
-on:
-  schedule:
-    - cron:  '0 * * * *'
