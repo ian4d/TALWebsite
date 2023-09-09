@@ -1,0 +1,15 @@
+{
+  "name": "Announcer",
+  "episodes": {
+    "2": "Small Scale Sin"
+  },
+  "statements": [
+    "This is WBEZ Chicago."
+  ],
+  "spokenWords": [
+    "Chicago",
+    "WBEZ",
+    "This",
+    "is"
+  ]
+}
